@@ -39,6 +39,9 @@ Outline of goals:
   - Make it interactive, but without hitting an API for now. You can ignore any saving of data or API access. This means you can load with some initial posts. If someone creates posts or deletes posts, it should change the page. But if we reload the page we'd just be starting over.
   - Use some sort of form validation on the "create new post" functionality, so people cannot post without entering all information. This can be as simple as an `alert('Please provide a URL')`.
   - Use an [Angular Component](https://angular.io/docs/ts/latest/tutorial/toh-pt3.html) for each item in the feed, so you don't copy the HTML multiple times.
+  - For the Images, you can assume the image url we pass in is of a reasonable aspect ratio. Nothing fancy there. For example:
+     - Avatar: http://via.placeholder.com/150x150
+     - Large Photo: http://via.placeholder.com/600x300
 
   You can use any JavaScript libraries you need, but please do not use any libraries like Bootstrap for the design. We want the custom SCSS to be part of the training.
 
