@@ -11,8 +11,7 @@
     "stylelint": "stylelint src/styles.scss src/styles/**/*.scss",
     "htmlhint": "htmlhint --config .htmlhintrc src/index.html src/app/**/*.html",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --aot"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
