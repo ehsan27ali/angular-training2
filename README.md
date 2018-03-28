@@ -34,7 +34,6 @@ There is one screen [here](docs/page1.png) outlining the feed and another [here]
 
 Outline of goals:
 
-  - Convert the design to CSS components.
   - Create the page that looks like [this](docs/page1.png).
   - Make it interactive, but without hitting an API for now. You can ignore any saving of data or API access. This means you can load with some initial posts. If someone creates posts or deletes posts, it should change the page. But if we reload the page we'd just be starting over.
   - Use some sort of form validation on the "create new post" functionality, so people cannot post without entering all information. This can be as simple as an `alert('Please provide a URL')`.
