@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+// Reset default browser styles using Normalize
+//@import '../../node_modules/normalize-scss/sass/_normalize.scss';
+
+// Install FontAwesome for useful icons
+//@import '../../node_modules/font-awesome/scss/font-awesome.scss';
+
+// Import fonts from Google
+//@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700|Lato:400,700);
+
+// External Imports -------------------
+
+// @import '../node_modules/normalize-scss/sass/normalize';
+// @import '../node_modules/font-awesome/scss/font-awesome';
+
+// External Initializations -------------------
+
+// @include normalize();
+
+// Set variables and reusable mixins -------------------
+
+@import 'styles/base/config';
+@import 'styles/base/mixins';
+
+// Import base files -------------------
+
+@import 'styles/base/defaults';
+@import 'styles/base/type';
+@import 'styles/base/utilities';
+
+// Import reusable modules -------------------
+
+@import 'styles/components/clearfix';
+
+// If IE support is needed -------------------
+
+@import 'styles/base/ie';
+
+// For anything quick and dirty that needs thrown in -------------------
+
+@import 'styles/base/shame';

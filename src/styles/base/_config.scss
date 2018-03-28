@@ -1,0 +1,49 @@
+//**
+// Project Settings
+//**
+
+// Consistent settings
+$font-size--default: 100%; // Global default font size
+$padding--default: 40px; // Padding and margins
+$font--default: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif; // System fonts
+
+// Responsive breakpoints
+$state--tablet-portrait: 768px;
+$state--tablet-landscape: 1000px;
+$state--web: 1200px;
+
+// Default colors
+
+// Cool
+$color--aqua:  #7fdbff;
+$color--blue:  #0074d9;
+$color--navy:  #001f3f;
+$color--teal:  #39cccc;
+$color--green: #2ecc40;
+$color--olive: #3d9970;
+$color--lime:  #01ff70;
+
+// Warm
+$color--yellow:  #ffdc00;
+$color--orange:  #ff851b;
+$color--red:     #ff4136;
+$color--fuchsia: #f012be;
+$color--purple:  #b10dc9;
+$color--maroon:  #85144b;
+
+// Gray Scale
+$color--white:  #fff;
+$color--silver: #ddd;
+$color--grey:   #aaa;
+$color--black:  #111;
+
+// Project color variables
+$color--primary: #1271db;
+$color--secondary: #233e5b;
+$color--tertiary: #aaa;
+
+$color--danger: $color--red; // Bad color for errors, validation etc.
+$color--success: $color--green; // Good color for success etc.
+$color--info: $color--blue; // Good color for success etc.
+$color--warning: $color--orange; // Good color for success etc.
+$color--subtle: $color--grey; // Subtle color for subtle text

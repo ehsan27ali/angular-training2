@@ -1,0 +1,58 @@
+//**
+// Project Mixins
+//**
+
+// Variables specifically for mixins --------------------------
+
+$gridStates: (
+  mobile: ( max-width: $state--tablet-portrait - 1 ),
+  tablet-portrait: ( min-width: $state--tablet-portrait ),
+  tablet-landscape: ( min-width: $state--tablet-landscape ),
+  web: ( min-width: $state--web )
+);
+
+// Responsivesness
+
+@mixin breakpoint($state: mobile) {
+
+  $stateObject: map-get($gridStates, unquote('#{$state}'));
+  $query: __getMediaQuery($stateObject);
+
+  @media #{$query} {
+    @content;
+  }
+}
+
+// Utility funtions for mixins --------------------------
+
+@function __getMediaQuery($state: ()) {
+  // if it's some settings or a state :
+  @if $state {
+
+    // get vars :
+    $min-width : map-get($state, min-width);
+    $max-width : map-get($state, max-width);
+    $query : map-get($state, query);
+
+    // direct query :
+    @if $query {
+      @return $query;
+    }
+    @else if $min-width and $max-width {
+      @return 'screen and (min-width: #{$min-width}) and (max-width: #{$max-width})';
+    }
+    @else if $min-width {
+      @return 'screen and (min-width: #{$min-width})';
+    }
+    @else if $max-width {
+      @return 'screen and (max-width: #{$max-width})';
+    }
+    @else {
+      @return null;
+    }
+
+  }
+  @else {
+    @return null;
+  }
+}

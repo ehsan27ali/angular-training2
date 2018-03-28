@@ -1,0 +1,50 @@
+// Utilities
+//
+//   - Utilities should take the form u-<cssName>--<value> and should
+//     all have "!important"
+//
+//   - <cssName>: All utility <cssNames> should be in kabab type
+//    (e.g. font-size or border-radius)
+//
+//   - <value>: can be either the real value (like "left" for .u-float--left) or
+//              something to indicate the value like "large" for
+//              .u-font-size--large
+
+// Floats
+.u-float--left { float: left !important; }
+
+.u-float--right { float: right !important; }
+
+.u-float--none { float: none !important; }
+
+// Font Weight
+.u-font-weight--normal { font-weight: normal !important; }
+
+.u-font-weight--medium { font-weight: 500 !important; }
+
+.u-font-weight--bold { font-weight: bold !important; }
+
+// Font Sizes
+.u-font-size--large { font-size: 20px !important; }
+
+.u-font-size--larger { font-size: 1.2em !important; }
+
+// Text Align
+.u-text-align--center { text-align: center !important; }
+
+.u-text-align--left { text-align: left !important; }
+
+.u-text-align--right { text-align: right !important; }
+
+// Display
+.u-display--none { display: none !important; }
+
+.u-display--block { display: block !important; }
+
+// Text Decoration
+.u-text-decoration--none { text-decoration: none !important; }
+
+.u-text-decoration--underline { text-decoration: underline !important; }
+
+// Margins
+.u-margin-bottom--none { margin-bottom: 0 !important; }
