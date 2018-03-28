@@ -73,3 +73,5 @@ import * as $ from 'jquery';
 ### Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+
+I generated the homepage by running `ng generate component pages/home`. If you wanted to generate a component called `toolbar`, you could run `ng generate component components/toolbar`.
