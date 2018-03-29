@@ -7,7 +7,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
  - [Quick Start](#quick-start)
  - [Training Exercise](#training-exercise)
  - [Getting Ready to Code](#getting-ready-to-code)
- - [Using the API](#using-the-api)
  - [Documentation](#documentation)
 
 
