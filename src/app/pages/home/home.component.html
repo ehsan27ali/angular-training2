@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Angular Training Site</title>
-</head>
+
 <body>
 	<div class="container">
 		
@@ -13,34 +9,22 @@
 	<br>
 <div class="row">
 <div class="column">
-<div class="boxed">
+<div class="boxed" *ngFor="let post of posts;">
 	<div class="topright">
 		<button class="x-btn" style="background-color:white; border:none; color:gray; cursor: pointer;">x</button>
 	</div>
-	<h1 *ngFor="let post of posts;"> 
-		<img class="pic" src="http://www.leadersmag.com/issues/2013.1_Jan/ROB/LEADERS-Rev-John-Jenkins-University-of-Notre-Dame-web-images/LEADERS-Rev-John-Jenkins-University-of-Notre-Dame.jpeg"style="width:50px;height:50px;">{{post.myname}} 
+	<h1> 
+		<img class="pic" src= "{{post.profileURL}}"  style="width:50px;height:50px;">{{post.myname}} 
 		<h2>{{post.thedate}}</h2>
 	</h1>
   
-  <img  src="https://scontent.fash1-1.fna.fbcdn.net/v/t1.0-9/33814913_1577979828994199_4316850570984947712_n.jpg?_nc_cat=0&oh=44ebb70399135c218f3d1a195b1c834f&oe=5B7C2456"
+  <img  src="{{post.imageURL}}"
   style="width:100%;height:70%;">
-  <p>When you pass second Theo<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus urna a nisi hendrerit volutpat. Donec varius sapien et lorem laoreet ornare. Suspendisse convallis velit et purus dictum auctor. Etiam aliquet blandit lorem, eu placerat augue porttitor ut. Cras vitae turpis ornare, pulvinar massa non, sollicitudin ligula.</p>
+  <p>{{post.caption}}</p>
   
 </div>
 	
-<div class="boxed">
-	<div class="topright">
-		<button class="x-btn" style="background-color:white; border:none; color:gray; cursor: pointer;">x</button>
-	</div>
-  <h1>
-  	<img class="pic" src="http://www.leadersmag.com/issues/2013.1_Jan/ROB/LEADERS-Rev-John-Jenkins-University-of-Notre-Dame-web-images/LEADERS-Rev-John-Jenkins-University-of-Notre-Dame.jpeg" style="width:50px;height:50px;"> Father Jenkins <h2> April 15, 2017</h2> 
-  </h1>
 
-  <img src="https://images.huffingtonpost.com/2016-07-13-1468418042-7917061-TouchdownJesusAgain_art-thumb.jpg" style="width:100%;height:70%;">
-
-  <p>God said "Let there be light"... and it was LIT<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus urna a nisi hendrerit volutpat. Donec varius sapien et lorem laoreet ornare. Suspendisse convallis velit et purus dictum auctor. Etiam aliquet blandit lorem, eu placerat augue porttitor ut. Cras vitae turpis ornare, pulvinar massa non, sollicitudin ligula.</p>
-  
-</div>
 <hr noshade color="#cccccc">
 <form style="width:100%">
 	<h3>New Posting</h3>
@@ -74,4 +58,3 @@
 </div>
 </div>
 </body>
-</html>
