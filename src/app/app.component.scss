@@ -1,4 +1,54 @@
 
 h1 {
-  background: red;
+  color:Gray;
+  font-size:20px;
 }
+h2{
+	color:white;
+	background-color: red;
+	font-size: 12px;
+	border-radius: 7px;
+	float:center;
+}
+.topnav {
+    background-color: #404040;
+    overflow: hidden;
+    height:100%;
+    width:100%;
+    	&.rightbar {
+    		float:right;
+    	}
+}
+.topnav a {
+    float: left;
+    color: gray;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    height:50px
+}
+.topnav a:hover {
+    background-color: lightgray;
+    color: black;
+    height:100%;
+    padding: 10px;
+    height:50px
+}
+.topnav a.active {
+    background-color: black;
+    color: gray;
+    height:100%;
+    padding: 10px;
+    height:50px
+}
+.redbox {
+	width: 30px;
+	height: 20px;
+	border:none;
+	background-color:red;
+	margin-left: 10px;
+	position: relative;
+	overflow:hidden;
+	float:right;
+	}
