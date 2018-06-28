@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
   providers: [ConfirmationPopupService]
 })
-var confirmMessages = ["Are you sure you want to delete?"];
-export default confirmMessages;
+//var confirmMessages = ["Are you sure you want to delete?"];
+//export default confirmMessages;
 
 export class HomeComponent implements OnInit {
   // myForm: FormGroup;
@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit {
   hasOtherError=false;
   errorMessage= '';
   i = 1;
-
 
   posts = [
     {
@@ -41,8 +40,6 @@ export class HomeComponent implements OnInit {
         imageUrl: 'https://images.huffingtonpost.com/2016-07-13-1468418042-7917061-TouchdownJesusAgain_art-thumb.jpg'
     }
   ];
-
-
 
   constructor() {
 
