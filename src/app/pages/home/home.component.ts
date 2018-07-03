@@ -50,10 +50,10 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     // Grab all the existing records
-    this.restAPI.get('/records').then(function(data) {
+    this.restAPI.get('/records').then((data) => {
       console.log('Got the data', data);
       this.posts = data;
-    }, function(error) {
+    }, (error) => {
       alert('An error occurred grabbing the data');
       console.log('Error getting data', error);
     });
