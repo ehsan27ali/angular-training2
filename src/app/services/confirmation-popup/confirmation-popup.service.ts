@@ -14,6 +14,4 @@ conf;
 	returnFunc(){
 		return this.conf;
 	}
-	
-
 }

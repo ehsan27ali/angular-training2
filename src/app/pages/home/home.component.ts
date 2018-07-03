@@ -41,6 +41,7 @@ export class HomeComponent implements OnInit {
   //       imageUrl: 'https://images.huffingtonpost.com/2016-07-13-1468418042-7917061-TouchdownJesusAgain_art-thumb.jpg'
   //   }
   // ];
+  //posts = this.restAPI.get('https://uhray-restapi.herokuapp.com/api/emma/records');
 
   constructor(private popup: ConfirmationPopupService,
               private restAPI: RestService) {
@@ -50,7 +51,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
     // Grab all the existing records
-    this.restAPI.get('/records').then((data) => {
+      this.restAPI.get('/records').then((data) => {
       console.log('Got the data', data);
       this.posts = data;
     }, (error) => {
@@ -65,7 +66,12 @@ export class HomeComponent implements OnInit {
     this.popup.alertSomething(this.confirmMessage);
     var r=this.popup.returnFunc();
     if (r==true){
-      this.posts.splice(i, 1);
+      this.restAPI.delete(`/records/${i}`).then((data) => {
+        console.log('deleted')
+        this.posts.splice(i, 1);
+      }, (error) => {
+        console.log(error);
+      });
     } else {
       console.log('false');
     }
@@ -124,9 +130,18 @@ export class HomeComponent implements OnInit {
   	//pushes new post to array of posts
   	if(this.hasError == false && this.hasOtherError==false) {
 	    const p = this.newPost;
-	    this.posts.push(p);
-	    this.newPost = {};
-      this.i = this.i+1;
+	    //this.posts.push(p);
+	    //this.newPost = {};
+      this.restAPI.post('/records',this.newPost).then((data) => {
+        console.log('new post added')
+        this.i = this.i+1;
+        this.posts.push(data);
+      });
+        
+        //document.location.reload();
+
+
+
     }
   }
 
