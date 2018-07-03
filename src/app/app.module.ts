@@ -11,6 +11,7 @@ import { HomeComponent } from './pages/home/home.component';
 
 // Import Services
 import { ConfirmationPopupService } from './services/confirmation-popup/confirmation-popup.service';
+import { RestService } from './services/rest-api/rest.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ConfirmationPopupService } from './services/confirmation-popup/confirma
     AppRoutingModule
   ],
   providers: [
-    ConfirmationPopupService
+    ConfirmationPopupService,
+    RestService
   ],
   bootstrap: [AppComponent]
 })
