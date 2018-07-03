@@ -1,11 +1,16 @@
+// Import Modules
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+// Import Components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
+
+// Import Services
+import { ConfirmationPopupService } from './services/confirmation-popup/confirmation-popup.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,9 @@ import { HomeComponent } from './pages/home/home.component';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    ConfirmationPopupService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

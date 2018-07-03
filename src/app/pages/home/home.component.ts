@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { ConfirmationPopupService } from '../../services/confirmation-popup/confirmation-popup.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [ConfirmationPopupService]
 })
-//var confirmMessages = ["Are you sure you want to delete?"];
-//export default confirmMessages;
 
 export class HomeComponent implements OnInit {
+
+  constructor(private popup: ConfirmationPopupService) {
+
+  }
+
   // myForm: FormGroup;
   items: any[] = [];
   newPost: any = {
@@ -23,6 +26,7 @@ export class HomeComponent implements OnInit {
   hasOtherError=false;
   errorMessage= '';
   i = 1;
+  confirmMessages = ["Are you sure you want to delete?"];
 
   posts = [
     {
@@ -41,9 +45,7 @@ export class HomeComponent implements OnInit {
     }
   ];
 
-  constructor() {
 
-  }
 
 
   ngOnInit() {
@@ -51,7 +53,8 @@ export class HomeComponent implements OnInit {
   }
 
   removePost(i) {
-    alert("Are you sure you want to delete?");
+    // alert("Are you sure you want to delete?");
+    this.popup.alertSomething();
     var messeges = [this.confirmMessages];
     this.posts.splice(i, 1);
   }
@@ -65,17 +68,17 @@ export class HomeComponent implements OnInit {
   	if (this.newPost.myname.length == 0) {
   		this.hasError = true;
   		this.errorMessage = 'Must include name';
-  		
+
   	}
   	if (this.newPost.thedate.length == 0) {
   		this.hasError = true;
   		this.errorMessage = 'Must include date';
-  		
+
   	}
   	if (this.newPost.profileUrl.length == 0) {
       this.hasError = true;
       this.errorMessage = 'Must include profile picture URL';
-      
+
     }
     if (this.newPost.profileUrl.length != 0){
       var test = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(this.newPost.profileUrl);
@@ -102,9 +105,9 @@ export class HomeComponent implements OnInit {
     if (this.newPost.caption.length == 0) {
       this.hasError = true;
       this.errorMessage = 'Must include message';
-      
+
     }
-  	
+
   	//pushes new post to array of posts
   	if(this.hasError == false && this.hasOtherError==false) {
 	    const p = this.newPost;
