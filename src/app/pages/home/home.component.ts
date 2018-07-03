@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   hasOtherError=false;
   errorMessage= '';
   i = 1;
-  confirmMessages = ["Are you sure you want to delete?"];
+  confirmMessage = "Are you sure you want to delete?";
 
   posts = [
     {
@@ -54,9 +54,14 @@ export class HomeComponent implements OnInit {
 
   removePost(i) {
     // alert("Are you sure you want to delete?");
-    this.popup.alertSomething();
-    var messeges = [this.confirmMessages];
-    this.posts.splice(i, 1);
+    this.popup.alertSomething(this.confirmMessage);
+    var r=this.popup.returnFunc();
+    if (r==true){
+      this.posts.splice(i, 1);
+    } else {
+      console.log('false');
+    }
+    
   }
 
   doSubmit() {
