@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfirmationPopupService } from '../../services/confirmation-popup/confirmation-popup.service';
+import { RestService } from '../../services/rest-api/rest.service';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +9,8 @@ import { ConfirmationPopupService } from '../../services/confirmation-popup/conf
 })
 
 export class HomeComponent implements OnInit {
-
-  constructor(private popup: ConfirmationPopupService) {
-
-  }
-
   // myForm: FormGroup;
+  posts: any[] = [];
   items: any[] = [];
   newPost: any = {
     imageUrl: '',
@@ -28,27 +25,38 @@ export class HomeComponent implements OnInit {
   i = 1;
   confirmMessage = "Are you sure you want to delete?";
 
-  posts = [
-    {
-        myname: 'Name Namely',
-        thedate: 'May 13th 2013',
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus urna a nisi hendrerit volutpat. Donec varius sapien et lorem laoreet ornare. Suspendisse convallis velit et purus dictum auctor. Etiam aliquet blandit lorem, eu placerat augue porttitor ut. Cras vitae turpis ornare, pulvinar massa non, sollicitudin ligula.',
-        profileUrl: 'http://www.leadersmag.com/issues/2013.1_Jan/ROB/LEADERS-Rev-John-Jenkins-University-of-Notre-Dame-web-images/LEADERS-Rev-John-Jenkins-University-of-Notre-Dame.jpeg',
-        imageUrl: 'https://images.huffingtonpost.com/2016-07-13-1468418042-7917061-TouchdownJesusAgain_art-thumb.jpg'
-    },
-    {
-        myname: 'Father Jenkins',
-        thedate: 'May 2nd 2013',
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus urna a nisi hendrerit volutpat. Donec varius sapien et lorem laoreet ornare. Suspendisse convallis velit et purus dictum auctor.',
-        profileUrl: 'http://www.leadersmag.com/issues/2013.1_Jan/ROB/LEADERS-Rev-John-Jenkins-University-of-Notre-Dame-web-images/LEADERS-Rev-John-Jenkins-University-of-Notre-Dame.jpeg',
-        imageUrl: 'https://images.huffingtonpost.com/2016-07-13-1468418042-7917061-TouchdownJesusAgain_art-thumb.jpg'
-    }
-  ];
+  // posts = [
+  //   {
+  //       myname: 'Name Namely',
+  //       thedate: 'May 13th 2013',
+  //       caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus urna a nisi hendrerit volutpat. Donec varius sapien et lorem laoreet ornare. Suspendisse convallis velit et purus dictum auctor. Etiam aliquet blandit lorem, eu placerat augue porttitor ut. Cras vitae turpis ornare, pulvinar massa non, sollicitudin ligula.',
+  //       profileUrl: 'http://www.leadersmag.com/issues/2013.1_Jan/ROB/LEADERS-Rev-John-Jenkins-University-of-Notre-Dame-web-images/LEADERS-Rev-John-Jenkins-University-of-Notre-Dame.jpeg',
+  //       imageUrl: 'https://images.huffingtonpost.com/2016-07-13-1468418042-7917061-TouchdownJesusAgain_art-thumb.jpg'
+  //   },
+  //   {
+  //       myname: 'Father Jenkins',
+  //       thedate: 'May 2nd 2013',
+  //       caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque cursus urna a nisi hendrerit volutpat. Donec varius sapien et lorem laoreet ornare. Suspendisse convallis velit et purus dictum auctor.',
+  //       profileUrl: 'http://www.leadersmag.com/issues/2013.1_Jan/ROB/LEADERS-Rev-John-Jenkins-University-of-Notre-Dame-web-images/LEADERS-Rev-John-Jenkins-University-of-Notre-Dame.jpeg',
+  //       imageUrl: 'https://images.huffingtonpost.com/2016-07-13-1468418042-7917061-TouchdownJesusAgain_art-thumb.jpg'
+  //   }
+  // ];
 
+  constructor(private popup: ConfirmationPopupService,
+              private restAPI: RestService) {
 
-
+  }
 
   ngOnInit() {
+
+    // Grab all the existing records
+    this.restAPI.get('/records').then((data) => {
+      console.log('Got the data', data);
+      this.posts = data;
+    }, (error) => {
+      alert('An error occurred grabbing the data');
+      console.log('Error getting data', error);
+    });
 
   }
 
