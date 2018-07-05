@@ -8,15 +8,17 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
-
+import { PostComponent } from './components/post/post.component';
 // Import Services
 import { ConfirmationPopupService } from './services/confirmation-popup/confirmation-popup.service';
 import { RestService } from './services/rest-api/rest.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
