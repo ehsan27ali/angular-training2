@@ -52,7 +52,10 @@ export class HomeComponent implements OnInit {
 
     // Grab all the existing records
       this.restAPI.get('/records').then((data) => {
-      console.log('Got the data', data);
+      data.forEach((post)=> {
+          post.editing=false;
+      })
+      console.log("got data",data);
       this.posts = data;
     }, (error) => {
       alert('An error occurred grabbing the data');
@@ -61,13 +64,13 @@ export class HomeComponent implements OnInit {
 
   }
 
-  removePost(i) {
+  removePost(id,i) {
     // alert("Are you sure you want to delete?");
     this.popup.alertSomething(this.confirmMessage);
     var r=this.popup.returnFunc();
     if (r==true){
-      this.restAPI.delete(`/records/${i}`).then((data) => {
-        console.log('deleted')
+      this.restAPI.delete(`/records/${id}`,{}).then((data) => {
+        console.log('deleted',data)
         this.posts.splice(i, 1);
       }, (error) => {
         console.log(error);
@@ -77,6 +80,21 @@ export class HomeComponent implements OnInit {
     }
     
   }
+
+  isEdit(i) {
+    this.posts[i].editing=true;
+    console.log("editing");
+  }
+
+  doneEdit(id, i) {
+    this.posts[i].editing=false;
+    console.log("done editing");
+    const p = this.posts[i];
+      this.restAPI.put(`/records/${id}`,this.posts[i]).then((data) => {
+        console.log('edit successful')
+        //this.posts.push(data);
+  });
+}
 
   doSubmit() {
 
